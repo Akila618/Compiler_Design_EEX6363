@@ -21,7 +21,7 @@ extern int derivation_step;
 void parse_program();
 void init_parser();
 
-// Grammar rule functions - these implement your BNF productions
+// Grammar rule functions
 void prog();
 void classOrImplOrFuncList();
 void classOrImplOrFunc();

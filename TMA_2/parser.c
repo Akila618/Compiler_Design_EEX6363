@@ -359,8 +359,6 @@ void arraySizeList() {
     }
 }
 
-/* Only assignStat is handled, but functionCall is also 
-should be handled */
 /*
 [Ambiguity]
 assignStat → variable assignOp expr
@@ -714,8 +712,7 @@ void variable() {
 }
 
 void idnestList() {
-    // For a simple variable, idnestList is always epsilon
-    write_derivation("idnestList -> ε");
+    write_derivation("idnestList -> idnest idnestList |  ε ");
     return;
 }
 
@@ -757,7 +754,6 @@ void idnestTail() {
         match(RIGHTPAREN);
         match(DOT);
     } else {
-        write_derivation("idnestTail -> ε");
         return;
     }
 }

@@ -1,8 +1,9 @@
-func fact(n : integer) => integer { 
-    if (n < 2) then { 
-        return(1) ; 
-    } 
-    else { 
-        return(n * fact(n - 1)) ; 
-    } ; 
-}
+func fact(n : integer) => integer {
+    local result : integer ;
+    if (n < 2) then {
+        result := 1 ;
+    } else {
+        result := n ;
+    } ;
+    return(result) ;
+};

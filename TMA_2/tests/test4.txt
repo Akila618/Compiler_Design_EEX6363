@@ -13,9 +13,9 @@ class Dog isa Animal {
 implement MyInterface {
     func doWork ( ) => void {
         local temp : integer ;
-        write ( ) ;
+        write(temp) ;
     }
-}
+};
 
 func main ( ) => integer {
     local dogCount : integer ;
@@ -27,4 +27,4 @@ func main ( ) => integer {
         write(dogCount);
     };
     return (dogCount) ;
-}
+};
