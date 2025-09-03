@@ -1,0 +1,1 @@
+func test() => void { if (5 < 10) then { write(1) ; } else { write(0) ; } ; }

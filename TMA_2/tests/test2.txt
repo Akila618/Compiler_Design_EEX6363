@@ -1,0 +1,7 @@
+class D { 
+    public func f() => void { 
+        while (1 < 2) { 
+            write(2) ; 
+        } ; 
+    } ; 
+} ;

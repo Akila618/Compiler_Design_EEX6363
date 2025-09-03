@@ -1,0 +1,162 @@
+======================================
+EEX6363 - Compiler Construction.
+Name: W.M.A.T.Wanninayake.
+Reg: 321428456 | S.No: S92068456
+======================================
+
+Parsing Steps of Program:
+================
+
+Step 1: prog -> classOrImplOrFuncList
+Step 2: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 3: classOrImplOrFunc -> classDecl
+Step 4: classDecl -> class id isaIdOpt { visibilitymemberDeclList } ;
+Step 5: isaIdOpt -> ε
+Step 6: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 7: visibility -> public
+Step 8: memberDecl -> attributeDecl
+Step 9: attributeDecl -> attribute varDecl
+Step 10: varDecl -> id : type arraySizeList ;
+Step 11: type -> integer
+Step 12: arraySizeList -> ε
+Step 13: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 14: visibility -> private
+Step 15: memberDecl -> attributeDecl
+Step 16: attributeDecl -> attribute varDecl
+Step 17: varDecl -> id : type arraySizeList ;
+Step 18: type -> integer
+Step 19: arraySizeList -> ε
+Step 20: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 21: visibility -> public
+Step 22: funcHead -> func id (fParams) => returnType
+Step 23: fParams -> ε
+Step 24: returnType -> void
+Step 25: memberDecl -> funcDecl
+Step 26: visibilitymemberDeclList -> ε
+Step 27: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 28: classOrImplOrFunc -> classDecl
+Step 29: classDecl -> class id isaIdOpt { visibilitymemberDeclList } ;
+Step 30: isaIdOpt -> isa id idTail
+Step 31: idTail -> ε
+Step 32: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 33: visibility -> public
+Step 34: funcHead -> func id (fParams) => returnType
+Step 35: fParams -> ε
+Step 36: returnType -> void
+Step 37: memberDecl -> funcDecl
+Step 38: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 39: visibility -> private
+Step 40: memberDecl -> attributeDecl
+Step 41: attributeDecl -> attribute varDecl
+Step 42: varDecl -> id : type arraySizeList ;
+Step 43: type -> integer
+Step 44: arraySizeList -> ε
+Step 45: visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList
+Step 46: visibility -> public
+Step 47: funcHead -> func id (fParams) => returnType
+Step 48: fParams -> ε
+Step 49: returnType -> void
+Step 50: memberDecl -> funcDecl
+Step 51: visibilitymemberDeclList -> ε
+Step 52: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 53: classOrImplOrFunc -> implDef
+Step 54: implDef -> implement id { funcDefList }
+Step 55: funcDefList -> funcDef funcDefList
+Step 56: funcDef -> funcHead funcBody
+Step 57: funcHead -> func id (fParams) => returnType
+Step 58: fParams -> ε
+Step 59: returnType -> void
+Step 60: funcBody -> { varDeclOrStmtList }
+Step 61: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 62: varDeclOrStmt -> localVarDecl
+Step 63: localVarDecl -> local varDecl
+Step 64: varDecl -> id : type arraySizeList ;
+Step 65: type -> integer
+Step 66: arraySizeList -> ε
+Step 67: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 68: varDeclOrStmt -> statement
+Step 69: statement -> write ( expr ) ;
+Step 70: varDeclOrStmtList -> ε
+Step 71: funcDefList -> ε
+Step 72: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 73: classOrImplOrFunc -> funcDef
+Step 74: funcDef -> funcHead funcBody
+Step 75: funcHead -> func id (fParams) => returnType
+Step 76: fParams -> ε
+Step 77: returnType -> type
+Step 78: type -> integer
+Step 79: funcBody -> { varDeclOrStmtList }
+Step 80: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 81: varDeclOrStmt -> localVarDecl
+Step 82: localVarDecl -> local varDecl
+Step 83: varDecl -> id : type arraySizeList ;
+Step 84: type -> integer
+Step 85: arraySizeList -> ε
+Step 86: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 87: varDeclOrStmt -> statement
+Step 88: idnestList -> ε
+Step 89: indiceList -> ε
+Step 90: statement -> assignStat ;
+Step 91: arithExpr -> term arithExprTail
+Step 92: term -> factor termTail
+Step 93: factor -> intLit
+Step 94: termTail -> ε
+Step 95: arithExprTail -> ε
+Step 96: expr -> arithExpr
+Step 97: arithExpr -> term arithExprTail
+Step 98: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 99: varDeclOrStmt -> statement
+Step 100: statement -> if ( relExpr ) then statBlock else statBlock ;
+Step 101: relExpr -> arithExpr relOp arithExpr
+Step 102: arithExpr -> term arithExprTail
+Step 103: term -> factor termTail
+Step 104: idnestList -> ε
+Step 105: factor -> variable
+Step 106: indiceList -> ε
+Step 107: termTail -> ε
+Step 108: arithExprTail -> ε
+Step 109: relOp -> >=
+Step 110: arithExpr -> term arithExprTail
+Step 111: term -> factor termTail
+Step 112: factor -> intLit
+Step 113: termTail -> ε
+Step 114: arithExprTail -> ε
+Step 115: statBlock -> { statmentList }
+Step 116: statmentList -> statement statmentList
+Step 117: statement -> write ( expr ) ;
+Step 118: arithExpr -> term arithExprTail
+Step 119: term -> factor termTail
+Step 120: factor -> intLit
+Step 121: termTail -> ε
+Step 122: arithExprTail -> ε
+Step 123: expr -> arithExpr
+Step 124: arithExpr -> term arithExprTail
+Step 125: statmentList -> ε
+Step 126: statBlock -> { statmentList }
+Step 127: statmentList -> statement statmentList
+Step 128: statement -> write ( expr ) ;
+Step 129: arithExpr -> term arithExprTail
+Step 130: term -> factor termTail
+Step 131: idnestList -> ε
+Step 132: factor -> variable
+Step 133: indiceList -> ε
+Step 134: termTail -> ε
+Step 135: arithExprTail -> ε
+Step 136: expr -> arithExpr
+Step 137: arithExpr -> term arithExprTail
+Step 138: statmentList -> ε
+Step 139: varDeclOrStmtList -> varDeclOrStmt varDeclOrStmtList
+Step 140: varDeclOrStmt -> statement
+Step 141: statement -> return ( expr ) ;
+Step 142: arithExpr -> term arithExprTail
+Step 143: term -> factor termTail
+Step 144: idnestList -> ε
+Step 145: factor -> variable
+Step 146: indiceList -> ε
+Step 147: termTail -> ε
+Step 148: arithExprTail -> ε
+Step 149: expr -> arithExpr
+Step 150: arithExpr -> term arithExprTail
+Step 151: varDeclOrStmtList -> ε
+Step 152: classOrImplOrFuncList -> ε
+Step 153: Parsing completed!
