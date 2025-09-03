@@ -18,9 +18,14 @@ fications are given below.
 - The scanner identifies and outputs tokens (valid words and punctuation)
 in the source program. Its output is a token that can thereafter be used by the syntax analyzer to verify that the program is syntactically valid. When called, the lexical analyzer should extract the next token from the source program.
 
+<<<<<<< HEAD
 ![alt text](image.png)
 
 ![alt text](image-1.png)
 
 ## Full Paper
 
+=======
+![image](https://github.com/user-attachments/assets/432a79e1-1166-48f0-9547-34c57da149b7)
+![image](https://github.com/user-attachments/assets/0084e777-2f9e-4fa7-9923-f6e44a672db0)
+>>>>>>> 5a5a9478e54e9e8d0647340a58c191508bd6706a
