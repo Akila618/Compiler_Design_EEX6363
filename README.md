@@ -89,3 +89,17 @@ The intermediate code generator operates on a **semantically verified AST** with
 
 ## 6. Target Code Generator (ISA2)
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+## Full Paper
+
+=======
+![image](https://github.com/user-attachments/assets/432a79e1-1166-48f0-9547-34c57da149b7)
+![image](https://github.com/user-attachments/assets/0084e777-2f9e-4fa7-9923-f6e44a672db0)
+>>>>>>> 5a5a9478e54e9e8d0647340a58c191508bd6706a
+>>>>>>> 6126eaf1e3f0503570b925582e1bfc4ac2c04636

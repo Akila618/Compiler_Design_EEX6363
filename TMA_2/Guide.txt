@@ -1,0 +1,10 @@
+> compile using below commands
+	-flex tma_1_lex.l
+	-bison -y -d -v .\tma_1_yc.y
+	-gcc -c y.tab.c lex.yy.c
+	-gcc lex.yy.c y.tab.c symbol_table.c -o tma_1.exe
+> Run tma_1.exe
+	-.\tma_1.exe
+> Enter any of the defined lexeme as the input
+> Run the test files in the tests
+	-get-Content .\tests\test4.txt | .\tma.exe

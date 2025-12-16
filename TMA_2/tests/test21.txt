@@ -1,0 +1,11 @@
+func complex() => void {
+    if (1 < 2) then {
+        if (2 < 3) then {
+            write(1) ;
+        } else {
+            write(2) ;
+        } ;
+    } else {
+        write(0) ;
+    } ;
+}

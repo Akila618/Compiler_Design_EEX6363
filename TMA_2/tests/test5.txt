@@ -1,0 +1,1 @@
+func add(a : integer, b : integer) => integer { return(a + b) ; }

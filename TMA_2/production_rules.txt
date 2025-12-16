@@ -1,0 +1,115 @@
+prog -> classOrImplOrFuncList
+
+classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList   | ε
+
+classOrImplOrFunc → classDecl | implDef | funcDef
+
+classDecl -> class id isaIdOpt {visibilitymemberDeclList} ;
+
+isaIdOpt  -> isa id idTail | ε
+
+idTail -> , id idTail | ε
+
+visibilitymemberDeclList -> visibility memberDecl visibilitymemberDeclList | ε
+
+implDef -> implement id {funcDefList}
+
+funcDefList -> funcDef funcDefList  | ε
+
+funcDef → funcHead funcBody
+
+visibility → public | private
+
+memberDecl → funcDecl | attributeDecl
+
+funcDecl → funcHead ;
+
+funcHead → func id ( fParams ) => returnType | constructor ( fParams )
+
+funcBody -> { varDeclOrStmtList }
+
+varDeclOrStmtList  -> varDeclOrStmt  varDeclOrStmtList  | ε
+
+varDeclOrStmt  → localVarDecl | statement
+
+attributeDecl → attribute varDecl
+
+localVarDecl → local varDecl
+
+varDecl -> id : type arraySizeList ;
+
+arraySizeList -> arraySize arraySizeList | ε
+
+statement → assignStat ; 
+| if ( relExpr ) then statBlock else statBlock ;
+| while ( relExpr ) statBlock ;
+| read ( variable ) ; 
+| write ( expr ) ;
+| return ( expr ) ;
+| functionCall ;
+
+assignStat → variable assignOp expr
+
+statBlock -> {  statmentList } | statement |  ε
+
+statmentList -> statement statmentList  |  ε
+
+expr → arithExpr | relExpr
+
+relExpr → arithExpr relOp arithExpr
+
+arithExpr → term arithExperTail
+
+arithExperTail -> addOp term arithExperTail |  ε
+
+sign → + | –
+
+term → factor termTail
+
+termTail -> multOp factor termTail |  ε
+
+factor → variable | functionCall | intLit | floatLit | ( arithExpr ) | not factor| sign factor
+
+variable -> idnestList id indiceList
+
+idnestList -> idnest idnestList |  ε
+
+indiceList -> indice indiceList |  ε
+
+functionCall → idnestList id ( aParams ) 
+
+idnest -> idOrSelf idnestTail
+idnestTail -> indiceList . |  (aParams)  .
+
+indiceList -> indice indiceList |  ε
+
+idOrSelf → id | self
+
+indice → [ arithExpr ]
+
+arraySize → [ intLit ] | [ ]
+
+type → integer | float | id
+
+returnType → type | void
+
+fParams -> id : type arraySizeList fParamsTailList | ε
+
+fParamsTailList -> fParamsTail fParamsTailList | ε
+
+aParams -> expr aParamsTailList  | ε
+
+aParamsTailList  -> aParamsTail  aParamsTailList  | ε
+
+fParamsTail  -> , id : type arraySizeList
+
+aParamsTail → , expr
+
+assignOp → :=
+
+relOp → == | <> | < | > | <= | >=
+
+addOp → + | – | or
+
+multOp → * | / | and
+
