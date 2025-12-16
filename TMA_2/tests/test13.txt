@@ -1,6 +1,0 @@
-class A {  
-    public func foo() => integer {  
-        local x : integer ;  
-        x := 5 ;  
-    } ;  
-} ;

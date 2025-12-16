@@ -1,6 +1,0 @@
-func inputTest() => void {
-    local x : integer ;
-    read(x) ;
-    x := x + 1 ;
-    write(x) ;
-}

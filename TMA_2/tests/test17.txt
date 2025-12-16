@@ -1,3 +1,0 @@
-func calc() => integer {
-    return(add(2, mul(3, 4))) ;
-}

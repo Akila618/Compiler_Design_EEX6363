@@ -1,5 +1,0 @@
-func arrTest() => void {  
-    local a : integer [5] ;  
-    a[0] := 10 ;  
-    write(a[0]) ;  
-} 

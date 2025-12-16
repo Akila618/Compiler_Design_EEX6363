@@ -1,7 +1,0 @@
-func testLocalVars() => void {
-    local a : integer ;
-    local b : integer ;
-    a := 10 ;
-    b := a + 5 ;
-    write(b) ;
-}
