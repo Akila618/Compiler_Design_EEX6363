@@ -68,41 +68,26 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 ".\\tma_1_yc.y"
+#line 1 "tma3.y"
 
-    
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
+    #include "symbols.h"
+    #include "parser.h"
 
     extern int yylex();
     extern int lineno;
     extern int yywrap();
     extern struct Token t;
+    extern int yylineno;
 
-    struct Symbol_table {
-        char* lexeme;
-        char* type;
-        char* token_type;
-        int size;
-        char* scope;
-        int line;
-        char* address;
-        char* other;
-    };
-
-
-    struct Symbol_table st[1000];
-    void add_symbol(char* lexeme, char* type, char* token_type, int size, char* scope, int line, char* address, char* other);
-    void print_symbol_table();
-    int no_of_symbols = 0;
-    
-    void yyerror(const char* s);
     int yyparse();
+    void yyerror(const char* s);
 
 
 /* Line 189 of yacc.c  */
-#line 106 "y.tab.c"
+#line 91 "y.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -174,13 +159,15 @@
      ID = 300,
      ALPHANUM = 301,
      INTEGER = 302,
-     FLOAT = 303,
-     FRACTION = 304,
-     NONZERO = 305,
-     LETTER = 306,
-     DIGIT = 307,
-     PRINT_SYMBOL_TABLE = 308,
-     EXIT = 309
+     INTEGER_LITERAL = 303,
+     FLOAT = 304,
+     FRACTION = 305,
+     FLOAT_LITERAL = 306,
+     NONZERO = 307,
+     LETTER = 308,
+     DIGIT = 309,
+     PRINT_SYMBOLS = 310,
+     EXIT = 311
    };
 #endif
 /* Tokens.  */
@@ -229,13 +216,15 @@
 #define ID 300
 #define ALPHANUM 301
 #define INTEGER 302
-#define FLOAT 303
-#define FRACTION 304
-#define NONZERO 305
-#define LETTER 306
-#define DIGIT 307
-#define PRINT_SYMBOL_TABLE 308
-#define EXIT 309
+#define INTEGER_LITERAL 303
+#define FLOAT 304
+#define FRACTION 305
+#define FLOAT_LITERAL 306
+#define NONZERO 307
+#define LETTER 308
+#define DIGIT 309
+#define PRINT_SYMBOLS 310
+#define EXIT 311
 
 
 
@@ -245,7 +234,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 33 ".\\tma_1_yc.y"
+#line 18 "tma3.y"
 
     int integer_values;
     char* character_values;
@@ -254,7 +243,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 258 "y.tab.c"
+#line 247 "y.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -266,7 +255,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 270 "y.tab.c"
+#line 259 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -479,22 +468,22 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  3
+#define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   51
+#define YYLAST   2
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  72
+#define YYNTOKENS  57
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  10
+#define YYNNTS  2
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  60
+#define YYNRULES  4
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  61
+#define YYNSTATES  5
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   309
+#define YYMAXUTOK   311
 
 #define YYTRANSLATE(YYX)						\
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -505,16 +494,16 @@ static const yytype_uint8 yytranslate[] =
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,    71,     2,     2,
-      59,    60,    69,    65,    58,    66,    56,    70,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,    55,    57,
-      67,     2,    68,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,    63,     2,    64,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    61,     2,    62,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -532,7 +521,8 @@ static const yytype_uint8 yytranslate[] =
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
-      45,    46,    47,    48,    49,    50,    51,    52,    53,    54
+      45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
+      55,    56
 };
 
 #if YYDEBUG
@@ -540,43 +530,19 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     5,     6,     9,    11,    13,    15,    17,
-      19,    21,    23,    25,    27,    29,    31,    33,    35,    37,
-      39,    41,    43,    45,    47,    49,    51,    53,    55,    57,
-      59,    61,    63,    65,    67,    69,    71,    73,    75,    77,
-      79,    81,    83,    85,    87,    89,    91,    93,    95,    97,
-      99,   101,   103,   105,   107,   109,   111,   113,   115,   117,
-     119
+       0,     0,     3,     5,     7
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      73,     0,    -1,    74,    -1,    -1,    74,    75,    -1,    77,
-      -1,    78,    -1,    79,    -1,    80,    -1,    81,    -1,    76,
-      -1,    53,    -1,    51,    -1,    46,    -1,    45,    -1,    52,
-      -1,    47,    -1,    48,    -1,    50,    -1,    49,    -1,    21,
-      -1,    22,    -1,    23,    -1,    24,    -1,    25,    -1,    26,
-      -1,    27,    -1,    28,    -1,    29,    -1,    30,    -1,    31,
-      -1,    32,    -1,    33,    -1,    34,    -1,    35,    -1,    36,
-      -1,    37,    -1,    38,    -1,    39,    -1,    40,    -1,    41,
-      -1,    42,    -1,    43,    -1,    44,    -1,     4,    -1,     3,
-      -1,    10,    -1,    14,    -1,    11,    -1,    13,    -1,    15,
-      -1,    18,    -1,    17,    -1,     8,    -1,     7,    -1,    16,
-      -1,     5,    -1,    19,    -1,    20,    -1,     6,    -1,    54,
-      -1
+      58,     0,    -1,    55,    -1,    56,    -1,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    67,    67,    70,    71,    75,    76,    77,    78,    79,
-      80,    84,    91,    94,    97,   100,   103,   106,   109,   112,
-     118,   121,   124,   127,   130,   133,   136,   139,   142,   145,
-     151,   154,   157,   160,   163,   166,   169,   172,   175,   178,
-     181,   184,   187,   190,   196,   199,   202,   205,   208,   211,
-     214,   217,   220,   223,   226,   229,   232,   235,   238,   241,
-     247
+       0,    48,    48,    52,    58
 };
 #endif
 
@@ -591,12 +557,9 @@ static const char *const yytname[] =
   "COMMA", "DOT", "COLON", "LEFTPAREN", "RIGHTPAREN", "LEFTBRACE",
   "RIGHTBRACE", "LEFTBRACKET", "RIGHTBRACKET", "PLUS", "MINUS", "MULTIPLY",
   "DIVIDE", "LESS", "GREATER", "ASSIGN", "GOEQ", "LOEQ", "NEQ", "ARROW",
-  "AND", "OR", "NOT", "ID", "ALPHANUM", "INTEGER", "FLOAT", "FRACTION",
-  "NONZERO", "LETTER", "DIGIT", "PRINT_SYMBOL_TABLE", "EXIT", "':'", "'.'",
-  "';'", "','", "'('", "')'", "'{'", "'}'", "'['", "']'", "'+'", "'-'",
-  "'<'", "'>'", "'*'", "'/'", "'%'", "$accept", "program", "statements",
-  "statement", "print_symbol_table", "lexical_element", "punctuation",
-  "operator", "reserved_word", "exit", 0
+  "AND", "OR", "NOT", "ID", "ALPHANUM", "INTEGER", "INTEGER_LITERAL",
+  "FLOAT", "FRACTION", "FLOAT_LITERAL", "NONZERO", "LETTER", "DIGIT",
+  "PRINT_SYMBOLS", "EXIT", "$accept", "program", 0
 };
 #endif
 
@@ -610,34 +573,20 @@ static const yytype_uint16 yytoknum[] =
      275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
-     305,   306,   307,   308,   309,    58,    46,    59,    44,    40,
-      41,   123,   125,    91,    93,    43,    45,    60,    62,    42,
-      47,    37
+     305,   306,   307,   308,   309,   310,   311
 };
 # endif
 
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    72,    73,    74,    74,    75,    75,    75,    75,    75,
-      75,    76,    77,    77,    77,    77,    77,    77,    77,    77,
-      78,    78,    78,    78,    78,    78,    78,    78,    78,    78,
-      79,    79,    79,    79,    79,    79,    79,    79,    79,    79,
-      79,    79,    79,    79,    80,    80,    80,    80,    80,    80,
-      80,    80,    80,    80,    80,    80,    80,    80,    80,    80,
-      81
+       0,    57,    58,    58,    58
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     1,     0,     2,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
-       1
+       0,     2,     1,     1,     0
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -645,39 +594,27 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       3,     0,     2,     1,    45,    44,    56,    59,    54,    53,
-      46,    48,    49,    47,    50,    55,    52,    51,    57,    58,
-      20,    21,    22,    23,    24,    25,    26,    27,    28,    29,
-      30,    31,    32,    33,    34,    35,    36,    37,    38,    39,
-      40,    41,    42,    43,    14,    13,    16,    17,    19,    18,
-      12,    15,    11,    60,     4,    10,     5,     6,     7,     8,
-       9
+       4,     2,     3,     0,     1
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     1,     2,    54,    55,    56,    57,    58,    59,    60
+      -1,     3
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-#define YYPACT_NINF -4
+#define YYPACT_NINF -56
 static const yytype_int8 yypact[] =
 {
-      -4,     6,    -3,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,
-      -4
+     -55,   -56,   -56,     2,   -56
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4,    -4
+     -56,   -56
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -687,35 +624,19 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-       4,     5,     6,     7,     8,     9,     3,    10,    11,     0,
-      12,    13,    14,    15,    16,    17,    18,    19,    20,    21,
-      22,    23,    24,    25,    26,    27,    28,    29,    30,    31,
-      32,    33,    34,    35,    36,    37,    38,    39,    40,    41,
-      42,    43,    44,    45,    46,    47,    48,    49,    50,    51,
-      52,    53
+       1,     2,     4
 };
 
-static const yytype_int8 yycheck[] =
+static const yytype_uint8 yycheck[] =
 {
-       3,     4,     5,     6,     7,     8,     0,    10,    11,    -1,
-      13,    14,    15,    16,    17,    18,    19,    20,    21,    22,
-      23,    24,    25,    26,    27,    28,    29,    30,    31,    32,
-      33,    34,    35,    36,    37,    38,    39,    40,    41,    42,
-      43,    44,    45,    46,    47,    48,    49,    50,    51,    52,
-      53,    54
+      55,    56,     0
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,    73,    74,     0,     3,     4,     5,     6,     7,     8,
-      10,    11,    13,    14,    15,    16,    17,    18,    19,    20,
-      21,    22,    23,    24,    25,    26,    27,    28,    29,    30,
-      31,    32,    33,    34,    35,    36,    37,    38,    39,    40,
-      41,    42,    43,    44,    45,    46,    47,    48,    49,    50,
-      51,    52,    53,    54,    75,    76,    77,    78,    79,    80,
-      81
+       0,    55,    56,    58,     0
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1526,463 +1447,43 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 11:
+        case 2:
 
 /* Line 1455 of yacc.c  */
-#line 84 ".\\tma_1_yc.y"
+#line 48 "tma3.y"
     {
-        printf("Yacc:: PRINT_TABLE found.\n");
-        print_symbol_table();
+        printf("Yacc:: PRINT_SYMBOLS found.\n");
+        print_symbols();
     }
     break;
 
-  case 12:
+  case 3:
 
 /* Line 1455 of yacc.c  */
-#line 91 ".\\tma_1_yc.y"
+#line 52 "tma3.y"
     {
-        add_symbol((yyvsp[(1) - (1)].character_values), "lexical_element", "ID", 0, "global", lineno, "-", "-");
+        printf("Yacc:: EXIT found.\n");
+        print_symbols();
+        exit(0);
     }
     break;
 
-  case 13:
+  case 4:
 
 /* Line 1455 of yacc.c  */
-#line 94 ".\\tma_1_yc.y"
+#line 58 "tma3.y"
     {
-        add_symbol((yyvsp[(1) - (1)].character_values), "lexical_element", "ALPHANUM", 0, "global", lineno, "-", "-");
-    }
-    break;
-
-  case 14:
-
-/* Line 1455 of yacc.c  */
-#line 97 ".\\tma_1_yc.y"
-    {
-        add_symbol((yyvsp[(1) - (1)].character_values), "lexical_element", "ID", 0, "global", lineno, "-", "-");
-    }
-    break;
-
-  case 15:
-
-/* Line 1455 of yacc.c  */
-#line 100 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: DIGIT found.\n");
-    }
-    break;
-
-  case 16:
-
-/* Line 1455 of yacc.c  */
-#line 103 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: INTEGER found.\n");
-    }
-    break;
-
-  case 17:
-
-/* Line 1455 of yacc.c  */
-#line 106 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: FLOAT found.\n");
-    }
-    break;
-
-  case 18:
-
-/* Line 1455 of yacc.c  */
-#line 109 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: NONZERO found.\n");
-    }
-    break;
-
-  case 19:
-
-/* Line 1455 of yacc.c  */
-#line 112 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: FRACTION found.\n");
-    }
-    break;
-
-  case 20:
-
-/* Line 1455 of yacc.c  */
-#line 118 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Semicolon found.\n");
-    }
-    break;
-
-  case 21:
-
-/* Line 1455 of yacc.c  */
-#line 121 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Comma found.\n");
-    }
-    break;
-
-  case 22:
-
-/* Line 1455 of yacc.c  */
-#line 124 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Dot found.\n");
-    }
-    break;
-
-  case 23:
-
-/* Line 1455 of yacc.c  */
-#line 127 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Colon found.\n");
-    }
-    break;
-
-  case 24:
-
-/* Line 1455 of yacc.c  */
-#line 130 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Left Parenthesis found.\n");
-    }
-    break;
-
-  case 25:
-
-/* Line 1455 of yacc.c  */
-#line 133 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Right Parenthesis found.\n");
-    }
-    break;
-
-  case 26:
-
-/* Line 1455 of yacc.c  */
-#line 136 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Left Brace found.\n");
-    }
-    break;
-
-  case 27:
-
-/* Line 1455 of yacc.c  */
-#line 139 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Right Brace found.\n");
-    }
-    break;
-
-  case 28:
-
-/* Line 1455 of yacc.c  */
-#line 142 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Left Bracket found.\n");
-    }
-    break;
-
-  case 29:
-
-/* Line 1455 of yacc.c  */
-#line 145 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Right Bracket found.\n");
-    }
-    break;
-
-  case 30:
-
-/* Line 1455 of yacc.c  */
-#line 151 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Plus operator found.\n");
-    }
-    break;
-
-  case 31:
-
-/* Line 1455 of yacc.c  */
-#line 154 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Minus operator found.\n");
-    }
-    break;
-
-  case 32:
-
-/* Line 1455 of yacc.c  */
-#line 157 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Multiply operator found.\n");
-    }
-    break;
-
-  case 33:
-
-/* Line 1455 of yacc.c  */
-#line 160 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Divide operator found.\n");
-    }
-    break;
-
-  case 34:
-
-/* Line 1455 of yacc.c  */
-#line 163 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Less than operator found.\n");
-    }
-    break;
-
-  case 35:
-
-/* Line 1455 of yacc.c  */
-#line 166 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Greater than operator found.\n");
-    }
-    break;
-
-  case 36:
-
-/* Line 1455 of yacc.c  */
-#line 169 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Assignment operator found.\n");
-    }
-    break;
-
-  case 37:
-
-/* Line 1455 of yacc.c  */
-#line 172 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Greater than or equal to operator found.\n");
-    }
-    break;
-
-  case 38:
-
-/* Line 1455 of yacc.c  */
-#line 175 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Less than or equal to operator found.\n");
-    }
-    break;
-
-  case 39:
-
-/* Line 1455 of yacc.c  */
-#line 178 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Not equal to operator found.\n");
-    }
-    break;
-
-  case 40:
-
-/* Line 1455 of yacc.c  */
-#line 181 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: Arrow operator found.\n");
-    }
-    break;
-
-  case 41:
-
-/* Line 1455 of yacc.c  */
-#line 184 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: AND operator found.\n");
-    }
-    break;
-
-  case 42:
-
-/* Line 1455 of yacc.c  */
-#line 187 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: OR operator found.\n");
-    }
-    break;
-
-  case 43:
-
-/* Line 1455 of yacc.c  */
-#line 190 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: NOT operator found.\n");
-    }
-    break;
-
-  case 44:
-
-/* Line 1455 of yacc.c  */
-#line 196 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: ELSE reserved word found.\n");
-    }
-    break;
-
-  case 45:
-
-/* Line 1455 of yacc.c  */
-#line 199 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: IF reserved word found.\n");
-    }
-    break;
-
-  case 46:
-
-/* Line 1455 of yacc.c  */
-#line 202 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: FUNC reserved word found.\n");
-    }
-    break;
-
-  case 47:
-
-/* Line 1455 of yacc.c  */
-#line 205 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: IMPLEMENT reserved word found.\n");
-    }
-    break;
-
-  case 48:
-
-/* Line 1455 of yacc.c  */
-#line 208 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: CLASS reserved word found.\n");
-    }
-    break;
-
-  case 49:
-
-/* Line 1455 of yacc.c  */
-#line 211 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: ATTRIBUTE reserved word found.\n");
-    }
-    break;
-
-  case 50:
-
-/* Line 1455 of yacc.c  */
-#line 214 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: ISA reserved word found.\n");
-    }
-    break;
-
-  case 51:
-
-/* Line 1455 of yacc.c  */
-#line 217 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: PRIVATE reserved word found.\n");
-    }
-    break;
-
-  case 52:
-
-/* Line 1455 of yacc.c  */
-#line 220 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: PUBLIC reserved word found.\n");
-    }
-    break;
-
-  case 53:
-
-/* Line 1455 of yacc.c  */
-#line 223 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: READ reserved word found.\n");
-    }
-    break;
-
-  case 54:
-
-/* Line 1455 of yacc.c  */
-#line 226 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: RETURN reserved word found.\n");
-    }
-    break;
-
-  case 55:
-
-/* Line 1455 of yacc.c  */
-#line 229 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: SELF reserved word found.\n");
-    }
-    break;
-
-  case 56:
-
-/* Line 1455 of yacc.c  */
-#line 232 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: THEN reserved word found.\n");
-    }
-    break;
-
-  case 57:
-
-/* Line 1455 of yacc.c  */
-#line 235 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: LOCAL reserved word found.\n");
-    }
-    break;
-
-  case 58:
-
-/* Line 1455 of yacc.c  */
-#line 238 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: VOID reserved word found.\n");
-    }
-    break;
-
-  case 59:
-
-/* Line 1455 of yacc.c  */
-#line 241 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: WHILE reserved word found.\n");
-    }
-    break;
-
-  case 60:
-
-/* Line 1455 of yacc.c  */
-#line 247 ".\\tma_1_yc.y"
-    {
-        printf("Yacc:: EXIT reserved word found.\n");
-        print_symbol_table();
-        exit(0);        
+        printf("Yacc:: Switching to recursive descent parser...\n");
+        ASTNode* root = parse_program(); // Calling to recursive descent parser
+        (void)root; // root available for later semantic analysis
+        YYACCEPT; // immediately terminates the parsing process of yyparse()
     }
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1986 "y.tab.c"
+#line 1487 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2194,64 +1695,29 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 255 ".\\tma_1_yc.y"
-
+#line 67 "tma3.y"
 
 
 int main() {
-    printf("======================================");
+    printf("======================================\n");
     printf("EEX6363 - Compiler Construction.\n");
     printf("Name: W.M.A.T.Wanninayake.\n");
-    printf("Reg: 321428456 | S.No: S92068456 \n");
+    printf("Reg: 321428456 | S.No: S92068456\n");
     printf("======================================\n\n");
 
-    printf("Running Lex and Yacc:\n");
+    printf("Running Lexical Analyzer with Recursive Descent Parser:\n");
+    printf("Program flow: Input Text > Lex > Tokens > Recursive Descent Parser > Derivation\n");
 
-    yyparse();
+    ASTNode* root = parse_program();
+    (void)root;
+    //print root
+    printf("root: %d", root);
 
-    printf("Parsing completed.\n");
-
+    printf("Program analysis completed.\n");
+    print_symbols();
     return 0;
 }
 
-void add_symbol(char* lexeme, char* type, char* token_type, int size, char* scope, int line, char* address, char* other) {
-    st[no_of_symbols].lexeme = strdup(lexeme);
-    st[no_of_symbols].type = strdup(type);
-    st[no_of_symbols].token_type = strdup(token_type);
-    st[no_of_symbols].line = line;
-
-    st[no_of_symbols].size = 0;
-    st[no_of_symbols].scope = "global";
-    st[no_of_symbols].address = "-";
-    st[no_of_symbols].other = "-";
-
-    no_of_symbols++;
-
-    printf("Symbol added: %s, Type: %s, Token Type: %s, Size: %d, Scope: %s, Line: %d, Address: %s, Other: %s\n",
-            lexeme, type, token_type, size, scope, line, address, other);
-    printf("Total symbols: %d\n", no_of_symbols);
-}
-
-void print_symbol_table() {
-    printf("\n------------------------------- SYMBOL TABLE ---------------------------------------\n");
-    printf("Lexeme\tType\tToken Type\tSize\tScope\tLine\tAddress\tOther\n");
-
-    for (int i = 0; i < no_of_symbols; i++) {
-        printf("%s\t%s\t%s\t%d\t%s\t%d\t%s\t%s\n",
-            st[i].lexeme,
-            st[i].type,
-            st[i].token_type,
-            st[i].size,
-            st[i].scope,
-            st[i].line,
-            st[i].address,
-            st[i].other
-        );
-    }
-}
-
-
 void yyerror(const char* s) {
-    printf("ERROR OCCURED:: %s\n", s);
+    printf("ERROR OCCURRED:: %s at line %d\n", s, lineno);
 }
-

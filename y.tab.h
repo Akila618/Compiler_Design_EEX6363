@@ -84,13 +84,15 @@
      ID = 300,
      ALPHANUM = 301,
      INTEGER = 302,
-     FLOAT = 303,
-     FRACTION = 304,
-     NONZERO = 305,
-     LETTER = 306,
-     DIGIT = 307,
-     PRINT_SYMBOL_TABLE = 308,
-     EXIT = 309
+     INTEGER_LITERAL = 303,
+     FLOAT = 304,
+     FRACTION = 305,
+     FLOAT_LITERAL = 306,
+     NONZERO = 307,
+     LETTER = 308,
+     DIGIT = 309,
+     PRINT_SYMBOLS = 310,
+     EXIT = 311
    };
 #endif
 /* Tokens.  */
@@ -139,13 +141,15 @@
 #define ID 300
 #define ALPHANUM 301
 #define INTEGER 302
-#define FLOAT 303
-#define FRACTION 304
-#define NONZERO 305
-#define LETTER 306
-#define DIGIT 307
-#define PRINT_SYMBOL_TABLE 308
-#define EXIT 309
+#define INTEGER_LITERAL 303
+#define FLOAT 304
+#define FRACTION 305
+#define FLOAT_LITERAL 306
+#define NONZERO 307
+#define LETTER 308
+#define DIGIT 309
+#define PRINT_SYMBOLS 310
+#define EXIT 311
 
 
 
@@ -155,7 +159,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 33 ".\\tma_1_yc.y"
+#line 18 "tma3.y"
 
     int integer_values;
     char* character_values;
@@ -164,7 +168,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 168 "y.tab.h"
+#line 172 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

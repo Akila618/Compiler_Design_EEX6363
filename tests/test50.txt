@@ -1,0 +1,13 @@
+func main() => void
+{
+    local a : integer;
+    local b : integer;
+    local c : integer;
+
+    a := 5;
+    b := 3;
+    c := a + b;
+
+    write(c);
+    write(10);
+}

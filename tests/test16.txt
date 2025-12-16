@@ -1,0 +1,6 @@
+class X isa Y, Z {
+    public attribute a : float ;
+    public func bar() => void {
+        foo(1, 2) ;
+    } ;
+} ;

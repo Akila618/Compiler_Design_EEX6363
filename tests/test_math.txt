@@ -1,0 +1,28 @@
+func compute(x: integer) => integer {
+    local a: integer;
+    local b: integer;
+    local c: integer;
+    local arr: integer[5];
+    local total: integer;
+
+    local k: integer;
+    local j: integer;
+    k := a + b;
+    a := x + c * 2;
+    b := (x - 3) * (a + 4) / 2;
+    c := (b * 7) + (12 / 2);
+    j := a + b;
+
+    arr[0] := a;
+    arr[1] := b + 10;
+    local tmp: integer;
+
+    
+    if ( tmp >= 50 ) then {
+        total := total + 1;
+    } else {
+        total := total - 1;
+    };
+
+    return (total);
+};

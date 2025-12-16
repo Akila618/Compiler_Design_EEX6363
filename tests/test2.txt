@@ -1,0 +1,9 @@
+class D { 
+    public attribute length : integer ;
+    public attribute length : integer ;
+    public func f() => void {
+        while (1 < 2) { 
+            write(2) ; 
+        } ; 
+    } ; 
+} ;

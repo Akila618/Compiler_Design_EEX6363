@@ -17,6 +17,7 @@ structure of a lex program
     #include <stdio.h>  
     #include "y.tab.h" // to include the token definitions
     #include <string.h> // to use strdup
+    #include "symbols.h"
 
     struct Token {
         char* token_type;
@@ -24,21 +25,9 @@ structure of a lex program
         int location;
     };
 
-    struct Symbol_table {
-        char* lexeme;
-        char* type;
-        char* token_type;
-        int size;
-        char* scope;
-        int line;
-        char* address;
-        char* other;
-    };
-
     int lineno = 1;
 
     struct Token t;
-    struct Symbol_table st;
 
     void result_type(char* type);
     struct Token create_token(char* token, char* lexeme);
@@ -48,13 +37,13 @@ structure of a lex program
 letter [a-zA-Z]
 digit [0-9]
 alphanum [a-zA-Z0-9_]
-id [a-zA-Z]([a-zA-Z0-9_])*
+id {letter}{alphanum}*
 
 nonzero [1-9]
-integer [1-9]([0-9])*|0
+integer {nonzero}{digit}*|0
 
-fraction [0-9]*\.[0-9]+
-float [0-9]+\.[0-9]+([eE][+-]?[0-9]+)?
+fraction {nonzero}*|0\.{digit}*{nonzero}|\.0
+float {integer}{fraction}([e][+-]?{integer})?
 
 whitespace [ \t]+
 
@@ -67,7 +56,7 @@ multi_line_comment "/*"(.|\n)*"*/"
 %%
 
 "EXIT" { return EXIT; }
-"PRINT_SYMBOL_TABLE" { return PRINT_SYMBOL_TABLE; }
+"PRINT_SYMBOLS" { return PRINT_SYMBOLS; }
 
 {whitespace} { /* skip */ }
 \n { lineno++; }
@@ -124,43 +113,34 @@ multi_line_comment "/*"(.|\n)*"*/"
 "while"     {result_type("while"); t = create_token("WHILE", yytext); return WHILE; }
 "write"     {result_type("write"); t = create_token("WRITE", yytext); return WRITE; }
 
-
-
-
-{letter}    {result_type("letter"); t = create_token("LETTER", yytext); 
-    yylval.character_values = strdup(yytext); 
-    return LETTER; 
-}
-{nonzero}   {result_type("nonzero"); t = create_token("NONZERO", yytext); 
+{integer}   {result_type("integer_literal"); t = create_token("INTEGER_LITERAL", yytext); 
     yylval.integer_values = atoi(strdup(yytext)); 
-    return NONZERO; 
-}
-{digit}     {result_type("digit"); t = create_token("DIGIT", yytext); 
-    yylval.integer_values = atoi(strdup(yytext)); 
-    return DIGIT; 
-}
-{alphanum}  {result_type("alphanum"); t = create_token("ALPHANUM", yytext); 
-    yylval.character_values = strdup(yytext); 
-    return ALPHANUM; 
-}
-{integer}   {result_type("integer"); t = create_token("INTEGER", yytext); 
-    yylval.integer_values = atoi(strdup(yytext)); 
-    return INTEGER; 
-}
-{fraction}  {result_type("fraction"); t = create_token("FRACTION", yytext); 
-    yylval.float_values = atof(strdup(yytext)); 
-    return FRACTION; 
-}
-{float}     {result_type("float"); t = create_token("FLOAT", yytext); 
-    yylval.float_values = atof(strdup(yytext)); 
-    return FLOAT; 
+    return INTEGER_LITERAL; 
 }
 {id}        {result_type("id"); t = create_token("ID", yytext); 
+    add_symbol(yytext, "id", "ID");
     yylval.character_values = strdup(strdup(yytext)); 
     return ID;
 }
 
-. { printf("Your input does not match for any lexemes defined in this language!\n");}
+
+{digit}     {result_type("digit"); t = create_token("DIGIT", yytext); 
+    yylval.integer_values = atoi(strdup(yytext)); 
+    return DIGIT; 
+}
+{alphanum}  {result_type("alphanum"); t = create_token("ALPHANUM", yytext);
+    add_symbol(yytext, "alphanum", "ALPHANUM");
+    yylval.character_values = strdup(yytext);
+    return ALPHANUM;
+}
+
+{float}     {result_type("float_literal"); t = create_token("FLOAT_LITERAL", yytext); 
+    yylval.float_values = atof(strdup(yytext)); 
+    return FLOAT_LITERAL; 
+}
+
+
+. { printf("Your input does not match for any lexemes defined in this language!\nUnknown character: %s (ASCII: %d)\n", yytext, yytext[0]); }
 
 %%
 
