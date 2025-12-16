@@ -1,0 +1,142 @@
+======================================
+EEX6363 - Compiler Construction.
+Name: W.M.A.T.Wanninayake.
+Reg: 321428456 | S.No: S92068456
+======================================
+
+Running Lexical Analyzer with Recursive Descent Parser:
+Program flow: Input Text > Lex > Tokens > Recursive Descent Parser > Derivation
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 1
+
+Starting parsing using recursive descent parser...
+Derivation: prog -> classOrImplOrFuncList
+Derivation: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Derivation: classOrImplOrFunc -> funcDef
+Derivation: funcDef -> funcHead funcBody
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: hello
+Location(Line): 1
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 1
+
+Next token: 280
+Matched token: 280
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 1
+
+Next token: 281
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 1
+
+Next token: 296
+Matched token: 296
+Found token type: void
+
+Token type: VOID
+Lexeme: void
+Location(Line): 1
+
+Next token: 275
+Matched token: 275
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 1
+
+Next token: 282
+Derivation: funcBody -> { varDeclOrStmtList }
+Matched token: 282
+Found token type: write
+
+Token type: WRITE
+Lexeme: write
+Location(Line): 2
+
+Next token: 264
+Derivation: varDeclOrStmt -> statement
+Derivation: statement -> write ( expr ) ;
+Matched token: 264
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 2
+
+Next token: 280
+Matched token: 280
+Your input does not match for any lexemes defined in this language!
+Unknown character: " (ASCII: 34)
+Found token type: id
+
+Token type: ID
+Lexeme: Hello
+Location(Line): 2
+
+Next token: 300
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Your input does not match for any lexemes defined in this language!
+Unknown character: ! (ASCII: 33)
+Your input does not match for any lexemes defined in this language!
+Unknown character: " (ASCII: 34)
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 2
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 2
+
+Next token: 276
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 3
+
+Next token: 283
+Matched token: 283
+Next token: 0
+Derivation: classOrImplOrFuncList -> ε
+Final lookahead token (numeric): 0
+Parsing completed successfully!
+Derivation: Parsing completed!
+Syntax tree written to syntax_tree.txt
+[CODEGEN]: Traversing AST for 3AC...
+Derivation written to derivation.txt
+root: 8136160Program analysis completed.
+
+---------------- SYMBOLS ----------------
+Lexeme		Type		Token Type
+hello           id              ID             
+Hello           id              ID             
+----------------------------------------------

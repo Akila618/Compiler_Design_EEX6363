@@ -1,0 +1,4 @@
+func doNothing() => void {
+    local length : float ;
+    length := 4.0e+10;
+}

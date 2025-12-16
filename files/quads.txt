@@ -1,0 +1,77 @@
+==========================================
+               Quadruples
+==========================================
+  0: LABEL  F_compute
+  1: pushBP _, BP, SP
+  2: setBP  BP, SP, _
+  3: allocFrame SP, SP, 32
+  4: frameAddr t1, BP, -48
+  5: loadStack t2, t1, 0
+  6: frameAddr t3, BP, -44
+  7: loadStack t4, t3, 0
+  8: ADD    t5, t2, t4
+  9: frameAddr t6, BP, -12
+ 10: storeStack t6, t5, 0
+ 11: frameAddr t7, BP, 8
+ 12: loadStack t8, t7, 0
+ 13: frameAddr t9, BP, -40
+ 14: loadStack t10, t9, 0
+ 15: MULT   t11, t10, 2
+ 16: ADD    t12, t8, t11
+ 17: frameAddr t13, BP, -48
+ 18: storeStack t13, t12, 0
+ 19: frameAddr t14, BP, 8
+ 20: loadStack t15, t14, 0
+ 21: SUB    t16, t15, 3
+ 22: frameAddr t17, BP, -48
+ 23: loadStack t18, t17, 0
+ 24: ADD    t19, t18, 4
+ 25: MULT   t20, t16, t19
+ 26: DIV    t21, t20, 2
+ 27: frameAddr t22, BP, -44
+ 28: storeStack t22, t21, 0
+ 29: frameAddr t23, BP, -44
+ 30: loadStack t24, t23, 0
+ 31: MULT   t25, t24, 7
+ 32: DIV    t26, 12, 2
+ 33: ADD    t27, t25, t26
+ 34: frameAddr t28, BP, -40
+ 35: storeStack t28, t27, 0
+ 36: frameAddr t29, BP, -48
+ 37: loadStack t30, t29, 0
+ 38: frameAddr t31, BP, -44
+ 39: loadStack t32, t31, 0
+ 40: ADD    t33, t30, t32
+ 41: frameAddr t34, BP, -8
+ 42: storeStack t34, t33, 0
+ 43: frameAddr t35, BP, -48
+ 44: loadStack t36, t35, 0
+ 45: frameAddr t37, BP, -36
+ 46: storeStack t37, t36, 0
+ 47: frameAddr t38, BP, -44
+ 48: loadStack t39, t38, 0
+ 49: ADD    t40, t39, 10
+ 50: frameAddr t41, BP, -36
+ 51: storeStack t41, t40, 0
+ 52: frameAddr t42, BP, -4
+ 53: loadStack t43, t42, 0
+ 54: LT     L1, t43, 50
+ 55: frameAddr t44, BP, -16
+ 56: loadStack t45, t44, 0
+ 57: ADD    t46, t45, 1
+ 58: frameAddr t47, BP, -16
+ 59: storeStack t47, t46, 0
+ 60: JUMP   L2
+ 61: LABEL  L1
+ 62: frameAddr t48, BP, -16
+ 63: loadStack t49, t48, 0
+ 64: SUB    t50, t49, 1
+ 65: frameAddr t51, BP, -16
+ 66: storeStack t51, t50, 0
+ 67: LABEL  L2
+ 68: frameAddr t52, BP, -16
+ 69: loadStack t53, t52, 0
+ 70: RET    _, t53, _
+ 71: restoreSP SP, BP, _
+ 72: popBP  BP, SP, _
+ 73: RET    _, _, _

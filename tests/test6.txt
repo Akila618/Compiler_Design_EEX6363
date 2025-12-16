@@ -1,0 +1,10 @@
+func test() => void { 
+    local a : integer;
+    local b : integer;
+    if (5 < 10) then { 
+        a := a * 5; 
+    } 
+    else { 
+        b : = b * 2;
+    } ; 
+};

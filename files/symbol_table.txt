@@ -1,0 +1,20 @@
+Symbol table:
+
+Scope(level=1, name=compute)
+Name                         | Kind         | Type                   | Scope                          | Width    | Offset   | Line
+----------------------------+--------------+----------------------+-------------------------------------------+--------+--------+----
+tmp                          | var          | int                    | function compute               | 4        | -4       | 18  
+j                            | var          | int                    | function compute               | 4        | -8       | 9   
+k                            | var          | int                    | function compute               | 4        | -12      | 8   
+total                        | var          | int                    | function compute               | 4        | -16      | 6   
+arr                          | var          | array(dim=1)           | function compute               | 20       | -36      | 5   
+c                            | var          | int                    | function compute               | 4        | -40      | 4   
+b                            | var          | int                    | function compute               | 4        | -44      | 3   
+a                            | var          | int                    | function compute               | 4        | -48      | 2   
+x                            | param        | int                    | function compute               | 4        | 8        | 1   
+
+Scope(level=0, name=<global>)
+Name                         | Kind         | Type                   | Scope                          | Width    | Offset   | Line
+----------------------------+--------------+----------------------+-------------------------------------------+--------+--------+----
+compute                      | function     | int                    | global                         | 4        | -        | 1   
+

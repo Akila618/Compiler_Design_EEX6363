@@ -1,0 +1,3 @@
+func logicTest() => integer {
+    return(not 0 + -1) ;
+}

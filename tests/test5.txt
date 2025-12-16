@@ -1,0 +1,11 @@
+func add(a : integer, b : integer) => void { 
+    local x: integer;
+    x := a + b;
+    return(x + 5) ; 
+}
+
+func sub(a : integer, b : integer) => void { 
+    local x: integer;
+    x := a - b;
+    return(x + 4) ; 
+}

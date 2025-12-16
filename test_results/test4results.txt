@@ -1,0 +1,1109 @@
+======================================
+EEX6363 - Compiler Construction.
+Name: W.M.A.T.Wanninayake.
+Reg: 321428456 | S.No: S92068456
+======================================
+
+Running Lexical Analyzer with Recursive Descent Parser:
+Program flow: Input Text > Lex > Tokens > Recursive Descent Parser > Derivation
+Found token type: class
+
+Token type: CLASS
+Lexeme: class
+Location(Line): 1
+
+Starting parsing using recursive descent parser...
+Derivation: prog -> classOrImplOrFuncList
+Derivation: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Derivation: classOrImplOrFunc -> classDecl
+Derivation: classDecl -> class id isaIdOpt { visibilitymemberDeclList } ;
+Matched token: 266
+Found token type: id
+
+Token type: ID
+Lexeme: MyInterface
+Location(Line): 1
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 1
+
+Next token: 282
+Derivation: isaIdOpt -> ε
+Matched token: 282
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 3
+
+Next token: 283
+Matched token: 283
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 3
+
+Next token: 276
+Matched token: 276
+Found token type: class
+
+Token type: CLASS
+Lexeme: class
+Location(Line): 5
+
+Next token: 266
+Derivation: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Derivation: classOrImplOrFunc -> classDecl
+Derivation: classDecl -> class id isaIdOpt { visibilitymemberDeclList } ;
+Matched token: 266
+Found token type: id
+
+Token type: ID
+Lexeme: Animal
+Location(Line): 5
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 5
+
+Next token: 282
+Derivation: isaIdOpt -> ε
+Matched token: 282
+Found token type: public
+
+Token type: PUBLIC
+Lexeme: public
+Location(Line): 6
+
+Next token: 272
+Derivation: visibility -> public
+Matched token: 272
+Found token type: attribute
+
+Token type: ATTRIBURE
+Lexeme: attribute
+Location(Line): 6
+
+Next token: 268
+Derivation: memberDecl -> attributeDecl
+Derivation: attributeDecl -> attribute varDecl
+Matched token: 268
+Found token type: id
+
+Token type: ID
+Lexeme: name
+Location(Line): 6
+
+Next token: 300
+Matched token: 300
+Found token type: COLON
+
+Token type: COLON
+Lexeme: :
+Location(Line): 6
+
+Next token: 279
+Matched token: 279
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 6
+
+Next token: 302
+Matched token: 302
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 6
+
+Next token: 276
+Derivation: arraySizeList -> ε
+Matched token: 276
+Found token type: private
+
+Token type: PRIVATE
+Lexeme: private
+Location(Line): 7
+
+Next token: 273
+Derivation: visibility -> private
+Matched token: 273
+Found token type: attribute
+
+Token type: ATTRIBURE
+Lexeme: attribute
+Location(Line): 7
+
+Next token: 268
+Derivation: memberDecl -> attributeDecl
+Derivation: attributeDecl -> attribute varDecl
+Matched token: 268
+Found token type: id
+
+Token type: ID
+Lexeme: age
+Location(Line): 7
+
+Next token: 300
+Matched token: 300
+Found token type: COLON
+
+Token type: COLON
+Lexeme: :
+Location(Line): 7
+
+Next token: 279
+Matched token: 279
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 7
+
+Next token: 302
+Matched token: 302
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 7
+
+Next token: 276
+Derivation: arraySizeList -> ε
+Matched token: 276
+Found token type: public
+
+Token type: PUBLIC
+Lexeme: public
+Location(Line): 8
+
+Next token: 272
+Derivation: visibility -> public
+Matched token: 272
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 8
+
+Next token: 265
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: speak
+Location(Line): 8
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 8
+
+Next token: 280
+Matched token: 280
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 8
+
+Next token: 281
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 8
+
+Next token: 296
+Matched token: 296
+Found token type: void
+
+Token type: VOID
+Lexeme: void
+Location(Line): 8
+
+Next token: 275
+Matched token: 275
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 8
+
+Next token: 276
+Derivation: memberDecl -> funcDecl
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 9
+
+Next token: 283
+Matched token: 283
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 9
+
+Next token: 276
+Matched token: 276
+Found token type: class
+
+Token type: CLASS
+Lexeme: class
+Location(Line): 11
+
+Next token: 266
+Derivation: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Derivation: classOrImplOrFunc -> classDecl
+Derivation: classDecl -> class id isaIdOpt { visibilitymemberDeclList } ;
+Matched token: 266
+Found token type: id
+
+Token type: ID
+Lexeme: Dog
+Location(Line): 11
+
+Next token: 300
+Matched token: 300
+Found token type: isa
+
+Token type: ISA
+Lexeme: isa
+Location(Line): 11
+
+Next token: 270
+Derivation: isaIdOpt -> isa id idTail
+Matched token: 270
+Found token type: id
+
+Token type: ID
+Lexeme: Animal
+Location(Line): 11
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 11
+
+Next token: 282
+Derivation: idTail -> ε
+Matched token: 282
+Found token type: public
+
+Token type: PUBLIC
+Lexeme: public
+Location(Line): 12
+
+Next token: 272
+Derivation: visibility -> public
+Matched token: 272
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 12
+
+Next token: 265
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: speak
+Location(Line): 12
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 12
+
+Next token: 280
+Matched token: 280
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 12
+
+Next token: 281
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 12
+
+Next token: 296
+Matched token: 296
+Found token type: void
+
+Token type: VOID
+Lexeme: void
+Location(Line): 12
+
+Next token: 275
+Matched token: 275
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 12
+
+Next token: 276
+Derivation: memberDecl -> funcDecl
+Matched token: 276
+Found token type: private
+
+Token type: PRIVATE
+Lexeme: private
+Location(Line): 13
+
+Next token: 273
+Derivation: visibility -> private
+Matched token: 273
+Found token type: attribute
+
+Token type: ATTRIBURE
+Lexeme: attribute
+Location(Line): 13
+
+Next token: 268
+Derivation: memberDecl -> attributeDecl
+Derivation: attributeDecl -> attribute varDecl
+Matched token: 268
+Found token type: id
+
+Token type: ID
+Lexeme: breed
+Location(Line): 13
+
+Next token: 300
+Matched token: 300
+Found token type: COLON
+
+Token type: COLON
+Lexeme: :
+Location(Line): 13
+
+Next token: 279
+Matched token: 279
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 13
+
+Next token: 302
+Matched token: 302
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 13
+
+Next token: 276
+Derivation: arraySizeList -> ε
+Matched token: 276
+Found token type: public
+
+Token type: PUBLIC
+Lexeme: public
+Location(Line): 14
+
+Next token: 272
+Derivation: visibility -> public
+Matched token: 272
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 14
+
+Next token: 265
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: fetch
+Location(Line): 14
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 14
+
+Next token: 280
+Matched token: 280
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 14
+
+Next token: 281
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 14
+
+Next token: 296
+Matched token: 296
+Found token type: void
+
+Token type: VOID
+Lexeme: void
+Location(Line): 14
+
+Next token: 275
+Matched token: 275
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 14
+
+Next token: 276
+Derivation: memberDecl -> funcDecl
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 16
+
+Next token: 283
+Matched token: 283
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 16
+
+Next token: 276
+Matched token: 276
+Found token type: implement
+
+Token type: IMPLEMENT
+Lexeme: implement
+Location(Line): 18
+
+Next token: 269
+Derivation: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Derivation: classOrImplOrFunc -> implDef
+Derivation: implDef -> implement id { funcDefList }
+Matched token: 269
+Found token type: id
+
+Token type: ID
+Lexeme: MyInterface
+Location(Line): 18
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 18
+
+Next token: 282
+Matched token: 282
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 19
+
+Next token: 265
+Derivation: funcDef -> funcHead funcBody
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: doWork
+Location(Line): 19
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 19
+
+Next token: 280
+Matched token: 280
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 19
+
+Next token: 281
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 19
+
+Next token: 296
+Matched token: 296
+Found token type: void
+
+Token type: VOID
+Lexeme: void
+Location(Line): 19
+
+Next token: 275
+Matched token: 275
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 19
+
+Next token: 282
+Derivation: funcBody -> { varDeclOrStmtList }
+Matched token: 282
+Found token type: local
+
+Token type: LOCAL
+Lexeme: local
+Location(Line): 20
+
+Next token: 274
+Derivation: varDeclOrStmt -> localVarDecl
+Derivation: localVarDecl -> local varDecl
+Matched token: 274
+Found token type: id
+
+Token type: ID
+Lexeme: temp
+Location(Line): 20
+
+Next token: 300
+Matched token: 300
+Found token type: COLON
+
+Token type: COLON
+Lexeme: :
+Location(Line): 20
+
+Next token: 279
+Matched token: 279
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 20
+
+Next token: 302
+Matched token: 302
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 20
+
+Next token: 276
+Derivation: arraySizeList -> ε
+Matched token: 276
+Found token type: write
+
+Token type: WRITE
+Lexeme: write
+Location(Line): 21
+
+Next token: 264
+Derivation: varDeclOrStmt -> statement
+Derivation: statement -> write ( expr ) ;
+Matched token: 264
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 21
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: temp
+Location(Line): 21
+
+Next token: 300
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 21
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 21
+
+Next token: 276
+Matched token: 276
+Found token type: return
+
+Token type: RETURN
+Lexeme: return
+Location(Line): 22
+
+Next token: 262
+Derivation: varDeclOrStmt -> statement
+Derivation: statement -> return ( expr ) ;
+Matched token: 262
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 22
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: kamal
+Location(Line): 22
+
+Next token: 300
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 22
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 22
+
+Next token: 276
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 23
+
+Next token: 283
+Matched token: 283
+Found token type: func
+
+Token type: FUNC
+Lexeme: func
+Location(Line): 25
+
+Next token: 265
+Derivation: funcDef -> funcHead funcBody
+Derivation: funcHead -> func id (fParams) => returnType
+Matched token: 265
+Found token type: id
+
+Token type: ID
+Lexeme: operator
+Location(Line): 25
+
+Next token: 300
+Matched token: 300
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 25
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: dogCount
+Location(Line): 25
+
+Next token: 300
+Matched token: 300
+Found token type: COLON
+
+Token type: COLON
+Lexeme: :
+Location(Line): 25
+
+Next token: 279
+Matched token: 279
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 25
+
+Next token: 302
+Matched token: 302
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 25
+
+Next token: 281
+Derivation: arraySizeList -> ε
+Derivation: fParamsTailList -> ε
+Matched token: 281
+Found token type: ARROW
+
+Token type: ARROW
+Lexeme: =>
+Location(Line): 25
+
+Next token: 296
+Matched token: 296
+Found token type: integer
+
+Token type: INTEGER
+Lexeme: integer
+Location(Line): 25
+
+Next token: 302
+Matched token: 302
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 25
+
+Next token: 282
+Derivation: funcBody -> { varDeclOrStmtList }
+Matched token: 282
+Found token type: if
+
+Token type: IF
+Lexeme: if
+Location(Line): 26
+
+Next token: 258
+Derivation: varDeclOrStmt -> statement
+Derivation: statement -> if ( relExpr ) then statBlock else statBlock ;
+Matched token: 258
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 26
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: dogCount
+Location(Line): 26
+
+Next token: 300
+Derivation: relExpr -> arithExpr relOp arithExpr
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Found token type: GREATEROREQUAL
+
+Token type: GREATEROREQUAL
+Lexeme: >=
+Location(Line): 26
+
+Next token: 293
+Matched token: 293
+Found token type: integer_literal
+
+Token type: INTEGER_LITERAL
+Lexeme: 5
+Location(Line): 26
+
+Next token: 303
+Matched token: 303
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 26
+
+Next token: 281
+Matched token: 281
+Found token type: then
+
+Token type: THEN
+Lexeme: then
+Location(Line): 26
+
+Next token: 260
+Matched token: 260
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 26
+
+Next token: 282
+Derivation: statBlock -> { statmentList }
+Matched token: 282
+Found token type: write
+
+Token type: WRITE
+Lexeme: write
+Location(Line): 27
+
+Next token: 264
+Derivation: statement -> write ( expr ) ;
+Matched token: 264
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 27
+
+Next token: 280
+Matched token: 280
+Found token type: integer_literal
+
+Token type: INTEGER_LITERAL
+Lexeme: 10
+Location(Line): 27
+
+Next token: 303
+Matched token: 303
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 27
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 27
+
+Next token: 276
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 28
+
+Next token: 283
+Matched token: 283
+Found token type: else
+
+Token type: ELSE
+Lexeme: else
+Location(Line): 29
+
+Next token: 259
+Matched token: 259
+Found token type: LEFTBRACE
+
+Token type: LEFTBRACE
+Lexeme: {
+Location(Line): 29
+
+Next token: 282
+Derivation: statBlock -> { statmentList }
+Matched token: 282
+Found token type: write
+
+Token type: WRITE
+Lexeme: write
+Location(Line): 30
+
+Next token: 264
+Derivation: statement -> write ( expr ) ;
+Matched token: 264
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 30
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: dogCount
+Location(Line): 30
+
+Next token: 300
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 30
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 30
+
+Next token: 276
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 31
+
+Next token: 283
+Matched token: 283
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 31
+
+Next token: 276
+Matched token: 276
+Found token type: return
+
+Token type: RETURN
+Lexeme: return
+Location(Line): 32
+
+Next token: 262
+Derivation: varDeclOrStmt -> statement
+Derivation: statement -> return ( expr ) ;
+Matched token: 262
+Found token type: LEFTPAREN
+
+Token type: LEFTPAREN
+Lexeme: (
+Location(Line): 32
+
+Next token: 280
+Matched token: 280
+Found token type: id
+
+Token type: ID
+Lexeme: dogCount
+Location(Line): 32
+
+Next token: 300
+Derivation: variable -> idnestList id indiceList
+Matched token: 300
+Found token type: RIGHTPAREN
+
+Token type: RIGHTPAREN
+Lexeme: )
+Location(Line): 32
+
+Next token: 281
+Matched token: 281
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 32
+
+Next token: 276
+Matched token: 276
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 33
+
+Next token: 283
+Matched token: 283
+Found token type: RIGHTBRACE
+
+Token type: RIGHTBRACE
+Lexeme: }
+Location(Line): 34
+
+Next token: 283
+Matched token: 283
+Found token type: SEMICOLON
+
+Token type: SEMICOLON
+Lexeme: ;
+Location(Line): 34
+
+Next token: 276
+Derivation: classOrImplOrFuncList -> ε
+Final lookahead token (numeric): 276
+Parsing completed successfully!
+Derivation: Parsing completed!
+Syntax tree written to syntax_tree.txt
+[CODEGEN]: Traversing AST for 3AC...
+[DEBUG]   Checking child: name='>=', lexeme=''
+[DEBUG]     Found >= by name
+Derivation written to derivation.txt
+root: 12461536Program analysis completed.
+
+---------------- SYMBOLS ----------------
+Lexeme		Type		Token Type
+MyInterface     id              ID             
+Animal          id              ID             
+name            id              ID             
+age             id              ID             
+speak           id              ID             
+Dog             id              ID             
+breed           id              ID             
+fetch           id              ID             
+doWork          id              ID             
+temp            id              ID             
+kamal           id              ID             
+operator        id              ID             
+dogCount        id              ID             
+----------------------------------------------

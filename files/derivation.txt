@@ -1,0 +1,113 @@
+======================================
+EEX6363 - Compiler Construction.
+Name: W.M.A.T.Wanninayake.
+Reg: 321428456 | S.No: S92068456
+======================================
+
+Parsing steps of Program:
+=====================================
+
+Step 1: prog -> classOrImplOrFuncList
+Step 2: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 3: classOrImplOrFunc -> funcDef
+Step 4: funcDef -> funcHead funcBody
+Step 5: funcHead -> func id (fParams) => returnType
+Step 6: arraySizeList -> ε
+Step 7: fParamsTailList -> ε
+Step 8: funcBody -> { varDeclOrStmtList }
+Step 9: varDeclOrStmt -> localVarDecl
+Step 10: localVarDecl -> local varDecl
+Step 11: arraySizeList -> ε
+Step 12: varDeclOrStmt -> localVarDecl
+Step 13: localVarDecl -> local varDecl
+Step 14: arraySizeList -> ε
+Step 15: varDeclOrStmt -> localVarDecl
+Step 16: localVarDecl -> local varDecl
+Step 17: arraySizeList -> ε
+Step 18: varDeclOrStmt -> localVarDecl
+Step 19: localVarDecl -> local varDecl
+Step 20: arraySizeList -> arraySize arraySizeList
+Step 21: arraySize -> [ intLit ] | [ ]
+Step 22: arraySizeList -> ε
+Step 23: varDeclOrStmt -> localVarDecl
+Step 24: localVarDecl -> local varDecl
+Step 25: arraySizeList -> ε
+Step 26: varDeclOrStmt -> localVarDecl
+Step 27: localVarDecl -> local varDecl
+Step 28: arraySizeList -> ε
+Step 29: varDeclOrStmt -> localVarDecl
+Step 30: localVarDecl -> local varDecl
+Step 31: arraySizeList -> ε
+Step 32: varDeclOrStmt -> statement
+Step 33: statement -> assignStat ;
+Step 34: assignStat -> variable assignOp expr
+Step 35: variable -> idnestList id indiceList
+Step 36: assignOp -> :=
+Step 37: variable -> idnestList id indiceList
+Step 38: variable -> idnestList id indiceList
+Step 39: varDeclOrStmt -> statement
+Step 40: statement -> assignStat ;
+Step 41: assignStat -> variable assignOp expr
+Step 42: variable -> idnestList id indiceList
+Step 43: assignOp -> :=
+Step 44: variable -> idnestList id indiceList
+Step 45: variable -> idnestList id indiceList
+Step 46: varDeclOrStmt -> statement
+Step 47: statement -> assignStat ;
+Step 48: assignStat -> variable assignOp expr
+Step 49: variable -> idnestList id indiceList
+Step 50: assignOp -> :=
+Step 51: variable -> idnestList id indiceList
+Step 52: variable -> idnestList id indiceList
+Step 53: varDeclOrStmt -> statement
+Step 54: statement -> assignStat ;
+Step 55: assignStat -> variable assignOp expr
+Step 56: variable -> idnestList id indiceList
+Step 57: assignOp -> :=
+Step 58: variable -> idnestList id indiceList
+Step 59: varDeclOrStmt -> statement
+Step 60: statement -> assignStat ;
+Step 61: assignStat -> variable assignOp expr
+Step 62: variable -> idnestList id indiceList
+Step 63: assignOp -> :=
+Step 64: variable -> idnestList id indiceList
+Step 65: variable -> idnestList id indiceList
+Step 66: varDeclOrStmt -> statement
+Step 67: statement -> assignStat ;
+Step 68: assignStat -> variable assignOp expr
+Step 69: variable -> idnestList id indiceList
+Step 70: indice -> [ arithExpr ]
+Step 71: assignOp -> :=
+Step 72: variable -> idnestList id indiceList
+Step 73: varDeclOrStmt -> statement
+Step 74: statement -> assignStat ;
+Step 75: assignStat -> variable assignOp expr
+Step 76: variable -> idnestList id indiceList
+Step 77: indice -> [ arithExpr ]
+Step 78: assignOp -> :=
+Step 79: variable -> idnestList id indiceList
+Step 80: varDeclOrStmt -> localVarDecl
+Step 81: localVarDecl -> local varDecl
+Step 82: arraySizeList -> ε
+Step 83: varDeclOrStmt -> statement
+Step 84: statement -> if ( relExpr ) then statBlock else statBlock ;
+Step 85: relExpr -> arithExpr relOp arithExpr
+Step 86: variable -> idnestList id indiceList
+Step 87: statBlock -> { statmentList }
+Step 88: statement -> assignStat ;
+Step 89: assignStat -> variable assignOp expr
+Step 90: variable -> idnestList id indiceList
+Step 91: assignOp -> :=
+Step 92: variable -> idnestList id indiceList
+Step 93: statBlock -> { statmentList }
+Step 94: statement -> assignStat ;
+Step 95: assignStat -> variable assignOp expr
+Step 96: variable -> idnestList id indiceList
+Step 97: assignOp -> :=
+Step 98: variable -> idnestList id indiceList
+Step 99: varDeclOrStmt -> statement
+Step 100: statement -> return ( expr ) ;
+Step 101: variable -> idnestList id indiceList
+Step 102: classOrImplOrFuncList -> ε
+Step 103: Parsing completed!
+======================================

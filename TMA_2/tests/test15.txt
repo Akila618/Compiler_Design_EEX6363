@@ -1,0 +1,5 @@
+class Matrix {
+    public func constructor(rows : integer, cols : integer) => void {
+        
+    } ;
+};
