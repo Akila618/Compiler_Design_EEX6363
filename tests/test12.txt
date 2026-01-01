@@ -1,0 +1,4 @@
+class Test {
+    public attribute value : integer ;
+    public func getValue ( ) => integer ;
+} ;

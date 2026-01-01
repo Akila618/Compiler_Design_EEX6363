@@ -1,0 +1,5 @@
+func hello() => void {
+    local var1 : float;
+    var1 := 10.02e+10;
+    write(var1) ;
+}

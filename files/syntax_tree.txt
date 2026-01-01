@@ -1,0 +1,120 @@
+prog
+`-- classOrImplOrFuncList
+    |-- classOrImplOrFunc
+    |   `-- funcDef
+    |       |-- funcHead
+    |       |   |-- ID -> doNothing
+    |       |   |-- fParams
+    |       |   `-- returnType
+    |       |       `-- void
+    |       `-- funcBody
+    |           `-- varDeclOrStmtList
+    |               |-- varDeclOrStmt
+    |               |   `-- localVarDecl
+    |               |       `-- varDecl
+    |               |           |-- ID -> var1
+    |               |           |-- type
+    |               |           |   `-- float
+    |               |           `-- arraySizeList
+    |               `-- varDeclOrStmtList
+    |                   |-- varDeclOrStmt
+    |                   |   `-- localVarDecl
+    |                   |       `-- varDecl
+    |                   |           |-- ID -> var2
+    |                   |           |-- type
+    |                   |           |   `-- integer
+    |                   |           `-- arraySizeList
+    |                   `-- varDeclOrStmtList
+    |                       |-- varDeclOrStmt
+    |                       |   `-- localVarDecl
+    |                       |       `-- varDecl
+    |                       |           |-- ID -> var3
+    |                       |           |-- type
+    |                       |           |   `-- integer
+    |                       |           `-- arraySizeList
+    |                       `-- varDeclOrStmtList
+    |                           |-- varDeclOrStmt
+    |                           |   `-- statement
+    |                           |       `-- assignStat
+    |                           |           |-- variable
+    |                           |           |   |-- idnestList
+    |                           |           |   |   |-- idnest
+    |                           |           |   |   |   |-- idOrSelf
+    |                           |           |   |   |   |   `-- ID -> var1
+    |                           |           |   |   |   `-- idnestTail
+    |                           |           |   |   `-- idnestList
+    |                           |           |   `-- indiceList
+    |                           |           |-- assignOp
+    |                           |           |   `-- :=
+    |                           |           `-- expr
+    |                           |               `-- arithExpr
+    |                           |                   |-- term
+    |                           |                   |   |-- factor
+    |                           |                   |   |   `-- intLit -> 10
+    |                           |                   |   `-- termTail
+    |                           |                   `-- arithExprTail
+    |                           `-- varDeclOrStmtList
+    |                               |-- varDeclOrStmt
+    |                               |   `-- statement
+    |                               |       `-- assignStat
+    |                               |           |-- variable
+    |                               |           |   |-- idnestList
+    |                               |           |   |   |-- idnest
+    |                               |           |   |   |   |-- idOrSelf
+    |                               |           |   |   |   |   `-- ID -> var2
+    |                               |           |   |   |   `-- idnestTail
+    |                               |           |   |   `-- idnestList
+    |                               |           |   `-- indiceList
+    |                               |           |-- assignOp
+    |                               |           |   `-- :=
+    |                               |           `-- expr
+    |                               |               `-- arithExpr
+    |                               |                   |-- term
+    |                               |                   |   |-- factor
+    |                               |                   |   |   `-- intLit -> 5
+    |                               |                   |   `-- termTail
+    |                               |                   `-- arithExprTail
+    |                               `-- varDeclOrStmtList
+    |                                   |-- varDeclOrStmt
+    |                                   |   `-- statement
+    |                                   |       `-- assignStat
+    |                                   |           |-- variable
+    |                                   |           |   |-- idnestList
+    |                                   |           |   |   |-- idnest
+    |                                   |           |   |   |   |-- idOrSelf
+    |                                   |           |   |   |   |   `-- ID -> var3
+    |                                   |           |   |   |   `-- idnestTail
+    |                                   |           |   |   `-- idnestList
+    |                                   |           |   `-- indiceList
+    |                                   |           |-- assignOp
+    |                                   |           |   `-- :=
+    |                                   |           `-- expr
+    |                                   |               `-- arithExpr
+    |                                   |                   |-- term
+    |                                   |                   |   |-- factor
+    |                                   |                   |   |   `-- variable
+    |                                   |                   |   |       |-- idnestList
+    |                                   |                   |   |       |   |-- idnest
+    |                                   |                   |   |       |   |   |-- idOrSelf
+    |                                   |                   |   |       |   |   |   `-- ID -> var1
+    |                                   |                   |   |       |   |   `-- idnestTail
+    |                                   |                   |   |       |   `-- idnestList
+    |                                   |                   |   |       `-- indiceList
+    |                                   |                   |   `-- termTail
+    |                                   |                   `-- arithExprTail
+    |                                   |                       |-- addOp
+    |                                   |                       |   `-- +
+    |                                   |                       |-- term
+    |                                   |                       |   |-- factor
+    |                                   |                       |   |   `-- variable
+    |                                   |                       |   |       |-- idnestList
+    |                                   |                       |   |       |   |-- idnest
+    |                                   |                       |   |       |   |   |-- idOrSelf
+    |                                   |                       |   |       |   |   |   `-- ID -> var2
+    |                                   |                       |   |       |   |   `-- idnestTail
+    |                                   |                       |   |       |   `-- idnestList
+    |                                   |                       |   |       `-- indiceList
+    |                                   |                       |   `-- termTail
+    |                                   |                       `-- arithExprTail
+    |                                   `-- varDeclOrStmtList
+    `-- classOrImplOrFuncList

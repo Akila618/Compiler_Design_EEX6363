@@ -1,0 +1,44 @@
+======================================
+EEX6363 - Compiler Construction.
+Name: W.M.A.T.Wanninayake.
+Reg: 321428456 | S.No: S92068456
+======================================
+
+Parsing steps of Program:
+=====================================
+
+Step 1: prog -> classOrImplOrFuncList
+Step 2: classOrImplOrFuncList -> classOrImplOrFunc classOrImplOrFuncList
+Step 3: classOrImplOrFunc -> funcDef
+Step 4: funcDef -> funcHead funcBody
+Step 5: funcHead -> func id (fParams) => returnType
+Step 6: funcBody -> { varDeclOrStmtList }
+Step 7: varDeclOrStmt -> localVarDecl
+Step 8: localVarDecl -> local varDecl
+Step 9: arraySizeList -> ε
+Step 10: varDeclOrStmt -> localVarDecl
+Step 11: localVarDecl -> local varDecl
+Step 12: arraySizeList -> ε
+Step 13: varDeclOrStmt -> localVarDecl
+Step 14: localVarDecl -> local varDecl
+Step 15: arraySizeList -> ε
+Step 16: varDeclOrStmt -> statement
+Step 17: statement -> assignStat ;
+Step 18: assignStat -> variable assignOp expr
+Step 19: variable -> idnestList id indiceList
+Step 20: assignOp -> :=
+Step 21: varDeclOrStmt -> statement
+Step 22: statement -> assignStat ;
+Step 23: assignStat -> variable assignOp expr
+Step 24: variable -> idnestList id indiceList
+Step 25: assignOp -> :=
+Step 26: varDeclOrStmt -> statement
+Step 27: statement -> assignStat ;
+Step 28: assignStat -> variable assignOp expr
+Step 29: variable -> idnestList id indiceList
+Step 30: assignOp -> :=
+Step 31: variable -> idnestList id indiceList
+Step 32: variable -> idnestList id indiceList
+Step 33: classOrImplOrFuncList -> ε
+Step 34: Parsing completed!
+======================================

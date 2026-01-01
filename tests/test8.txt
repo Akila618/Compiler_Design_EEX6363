@@ -1,0 +1,5 @@
+class B isa A, C { 
+    private attribute y : float ; 
+    public func bar() => void { 
+    } ;
+};

@@ -1,0 +1,37 @@
+class MyInterface{
+    
+};
+
+class Animal {
+    public attribute name : integer ;
+    private attribute age : integer ;
+    public func speak ( ) => void ;
+} ;
+
+class Dog isa Animal {
+    public func speak ( ) => void ;
+    private attribute breed : integer ;
+    public func fetch (  ) => void ;
+    
+} ;
+
+implement Dog {
+    func doWork () => void {
+        local brown : integer ;
+        brown := 10 ;
+        write(brown) ;
+    }
+
+    func operator () => integer {
+        local dogCount : integer ;
+        dogCount := 7 ;
+        
+        if ( dogCount >= 5 ) then {
+            write ( 10 ) ;
+        }
+        else{
+            write(dogCount);
+        };
+        return (dogCount) ;
+    }
+};

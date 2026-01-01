@@ -1,0 +1,3 @@
+func calculateMarks(student : integer, mark : integer) => integer { 
+    return(student + mark);
+}

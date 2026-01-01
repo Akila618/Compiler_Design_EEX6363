@@ -1,0 +1,10 @@
+func doNothing() => void {
+    local var1: float;
+    local var2: integer;
+    local var3: integer;
+
+    var1 := 10;
+    var2 := 5;
+
+    var3 := var1 + var2;
+};

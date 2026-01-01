@@ -1,0 +1,71 @@
+============================================================
+       ISA 2 Accumulator Assembly
+============================================================
+  stack pointer, base pointer have reserved addresses
+  seperate region for stack data memory
+  seperate region for global variables
+============================================================
+
+main_entry:
+        loadacc #1000
+        storeacc 0
+        storeacc 1
+
+F_doNothing:
+        loadacc 1
+        storeacc &0
+        loadacc 0
+        add #1
+        storeacc 0
+        loadacc 0
+        storeacc 1
+        loadacc 0
+        add #32
+        storeacc 0
+        loadacc 1
+        sub #12
+        storeacc 5000
+        loadacc 5000
+        storeacc 10
+        loadacc #10
+        storeacc &10
+        loadacc 1
+        sub #8
+        storeacc 5001
+        loadacc 5001
+        storeacc 10
+        loadacc #5
+        storeacc &10
+        loadacc 1
+        sub #12
+        storeacc 5002
+        loadacc 5002
+        storeacc 10
+        loadacc &10
+        storeacc 5003
+        loadacc 1
+        sub #8
+        storeacc 5004
+        loadacc 5004
+        storeacc 10
+        loadacc &10
+        storeacc 5005
+        loadacc 5003
+        add 5005
+        storeacc 5006
+        loadacc 1
+        sub #4
+        storeacc 5007
+        loadacc 5007
+        storeacc 10
+        loadacc 5006
+        storeacc &10
+        loadacc 1
+        storeacc 0
+        loadacc 0
+        sub #1
+        storeacc 0
+        loadacc &0
+        storeacc 1
+        ret
+        hlt

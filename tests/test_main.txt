@@ -1,0 +1,16 @@
+func main() => void {
+
+    //comment
+    /*comment*/
+
+    local age : integer;
+    local counter : integer;
+    local total : integer;
+    
+    age := 5;
+    counter := 3;
+    total := age + counter * 2;
+    
+    write(total);
+    write(10);
+}

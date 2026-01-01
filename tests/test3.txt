@@ -1,0 +1,7 @@
+func arrTest() => void { 
+    local x : integer; 
+    local a : integer [5] ;  
+    a[0] := 10 ;  
+    x := 15;
+     
+}

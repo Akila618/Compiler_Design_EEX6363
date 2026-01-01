@@ -1,0 +1,14 @@
+Symbol table:
+
+Scope(level=1, name=doNothing)
+Name                         | Kind         | Type                   | Scope                          | Width    | Offset   | Line
+----------------------------+--------------+----------------------+-------------------------------------------+--------+--------+----
+var3                         | var          | int                    | function doNothing             | 4        | -4       | 4   
+var2                         | var          | int                    | function doNothing             | 4        | -8       | 3   
+var1                         | var          | float                  | function doNothing             | 8        | -16      | 2   
+
+Scope(level=0, name=<global>)
+Name                         | Kind         | Type                   | Scope                          | Width    | Offset   | Line
+----------------------------+--------------+----------------------+-------------------------------------------+--------+--------+----
+doNothing                    | function     | void                   | global                         | -        | -        | 1   
+

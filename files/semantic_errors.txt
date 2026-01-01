@@ -1,0 +1,2 @@
+Line 0: Type error: cannot assign expression of type 'int' to variable of type 'float'
+Line 0: Type error: cannot assign expression of type 'float' to variable of type 'int'

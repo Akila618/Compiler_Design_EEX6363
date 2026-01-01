@@ -1,31 +1,91 @@
-# Compiler_Design_EEX6363
-Compiler design to understand how the Lexical analysis, Syntax analysis and Semantic analysis carries out in compilation process after pre-process stage during the execution of a language translator of a computer.
+# Design project
 
-# TMA 1 - To design the Lexical analyser using flex and bison
-- compile using below commands
-	* flex tma_1_lex.l
-	* bison -y -d -v .\tma_1_yc.y
-	* gcc -c y.tab.c lex.yy.c
-	* gcc lex.yy.c y.tab.c -o tma_1.exe
-- Run tma_1.exe
-	* .\tma_1.exe
-- Enter any of the defined lexeme as the input
+## How to compile
+```
+flex tma3.l
+bison -y -d tma3.y
+gcc -c .\lex.yy.c .\y.tab.c
+gcc .\lex.yy.c .\y.tab.c .\symbols.c .\symbol_table.c .\semantic.c .\parser.c .\ast.c .\stack.c .\codegen.c .\isa2.c -o .\tma3.exe
 
-## The syntax and grammar
+```
 
-- Desin and implement a lexical anlayzer for a programming language whose speci-
-fications are given below. 
-- The scanner identifies and outputs tokens (valid words and punctuation)
-in the source program. Its output is a token that can thereafter be used by the syntax analyzer to verify that the program is syntactically valid. When called, the lexical analyzer should extract the next token from the source program.
+## Structure
+1. [Register Allocation/Deallocation](#register-allocation-deallocation-scheme)
+2. [Memory Usage](#memory-usage-scheme-stack-based)
+3. [Code Generation Phases](#code-generation-phases)
+4. [Intermediate Code Generator](#intermediate-code-generator)
+5. [Symbol Table Integration](#symbol-table-integration)
+6. [Target Code Generator (ISA2)](#target-code-generator-isa2)
 
-<<<<<<< HEAD
-![alt text](image.png)
+---
 
-![alt text](image-1.png)
+## 1. Register Allocation/Deallocation Scheme
 
-## Full Paper
+### Overview
+The main objective of the design project is the create the intermediate code generator and the target code generator for accumulator based ISA
 
-=======
-![image](https://github.com/user-attachments/assets/432a79e1-1166-48f0-9547-34c57da149b7)
-![image](https://github.com/user-attachments/assets/0084e777-2f9e-4fa7-9923-f6e44a672db0)
->>>>>>> 5a5a9478e54e9e8d0647340a58c191508bd6706a
+---
+
+## 2. Memory Usage
+
+---
+
+## 3. Code Generation Phases
+
+### Phase Overview
+
+```
+┌────────────────────────────────────────────────────────────┐
+│                    INPUT: Verified AST                     │
+│              (from Semantic Analysis Phase)                │
+└────────────────────┬───────────────────────────────────────┘
+                     │
+                     ▼
+┌────────────────────────────────────────────────────────────┐
+│  PHASE 1: AST Traversal & 3AC Generation                   │
+│  ───────────────────────────────────────                   │
+│  Module: codegen.c                                         │
+│  Entry:  generate_ir(ASTNode* root)                        │
+│                                                            │
+│  Actions:                                                  │
+│  • Traverse AST recursively (traverse_all)                 │
+│  • Generate quadruples for each construct                  │
+│  • Manage temporary variables & labels                     │
+│  • Build intermediate representation                       │
+└────────────────────┬───────────────────────────────────────┘
+                     │
+                     ▼
+
+```
+
+---
+
+## 4. Intermediate Code Generator
+
+### 4.1 Integration with AST and Symbol Table
+
+The intermediate code generator operates on a **semantically verified AST** with an **annotated symbol table**.
+
+#### 4.1.1 Input Requirements
+
+**From Semantic Analysis Phase**:
+1. **Verified AST**: No semantic errors
+2. **Populated Symbol Table**: All symbols declared, types resolved
+3. **Offset Information**: Local/parameter offsets calculated
+4. **Type Information**: Expression types determined
+
+**Preconditions Verified** (semantic.c):
+- All identifiers declared before use
+- Type compatibility in assignments
+- Function signatures match calls
+- Return types correct
+- Array bounds are constant
+
+---
+
+## 5. Symbol Table
+
+---
+
+## 6. Target Code Generator (ISA2)
+

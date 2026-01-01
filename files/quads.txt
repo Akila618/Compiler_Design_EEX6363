@@ -1,0 +1,21 @@
+==========================================
+               Quadruples
+==========================================
+  0: LABEL  F_doNothing
+  1: pushBP _, BP, SP
+  2: setBP  BP, SP, _
+  3: allocFrame SP, SP, 32
+  4: frameAddr t1, BP, -12
+  5: storeStack t1, 10, 0
+  6: frameAddr t2, BP, -8
+  7: storeStack t2, 5, 0
+  8: frameAddr t3, BP, -12
+  9: loadStack t4, t3, 0
+ 10: frameAddr t5, BP, -8
+ 11: loadStack t6, t5, 0
+ 12: ADD    t7, t4, t6
+ 13: frameAddr t8, BP, -4
+ 14: storeStack t8, t7, 0
+ 15: restoreSP SP, BP, _
+ 16: popBP  BP, SP, _
+ 17: RET    _, _, _

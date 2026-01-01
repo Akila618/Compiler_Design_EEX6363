@@ -1,0 +1,23 @@
+func func1(integer_param_1 : integer [2][3][5], float_param_1 : float [10]) => void {
+  local float_var_1 : float;
+  local int_var_1 : integer;
+  local int_var_2 : integer;
+  local int_var_3 : integer;
+};
+
+func func2(float_param_2 : float [102], float_param_3 : float) => void {
+  local int_var_4 : integer [4][2][1];
+  local float_var_2 : float [100];
+  local x2 : integer;
+  x2 := 25;
+  local a2 : integer;
+  local b2 : integer;
+  local c2 : integer;
+  local a3 : integer;
+  local x3 : integer;
+  local z3 : integer;
+  local y3 : integer;
+
+  a2 := 45 * 2;
+  a3 := a2 + 5;
+};
